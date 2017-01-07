@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Classes";
+}
+
+@section scripts {
+<script>
+    (function ($) {
+        // LIST HTML
+        var buildListHtml = function (m) {
+            return $('<tr class="item-' + m.Id + '">' +
+                '<td>' + m.ClassName + '</td>' +
+                '<td>' + m.Teacher + '</td>' +
+                '<td><a href="/Classes/Edit/' + m.Id + '">Edit</a> |' +
+                '  <a href="javascript:void(0)" class="delete" data-id="' + m.Id + '">Delete</a>' +
+                '</td>' +
+            '</tr>');
+        };
+
+        // DELETE
+        $(document).on('click', 'a.delete', function () {
+            if (!confirm("Are you sure you want to DELETE this record?"))
+                return;
+
+            var id = $(this).data('id');
+            $.post('@(Url.Action("Delete"))/' + id, null)
+            .done(function (r) {
+                if (r.isOK) {
+                    $('.item-' + id).remove();
+                    alert('Success!');
+                }
+                else
+                    alert('Error');
+            })
+            .error(function () {
+                alert('Error');
+            });
+        });
+
+        // LIST
+        $(document).ready(function () {
+            $.getJSON(CONFIG.apiPath + '/classes')
+            .done(function (r) {
+                if (!r.isOK) {
+                    alert("Error");
+                    return;
+                }
+
+                for (var i = 0; i < r.data.length; i++) {
+                    $('#list').append(buildListHtml(r.data[i]));
+                }
+            })
+            .fail(function () {
+                alert('Error');
+            });
+        });
+    })(jQuery)
+</script>
+}
+
+<h2>Classes</h2>
+
+<p>
+    @Html.ActionLink("+ New", "Edit")
+</p>
+<table id="list" class="table">
+    <tr>
+        <th>
+            Class Name
+        </th>
+        <th>
+            Teacher
+        </th>
+        <th></th>
+    </tr>
+
+</table>

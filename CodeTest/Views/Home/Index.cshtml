@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Code Test</h1>
+    <p class="lead">Submitted by: Alan Dano</p>
+    <p><a href="http://danocity.com" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Classes</h2>
+        <p>
+            Manage Class information.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Classes")">Manage &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Students</h2>
+        <p>
+            Manage Students information.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Students")">Manage &raquo;</a></p>
+    </div>
+</div>
