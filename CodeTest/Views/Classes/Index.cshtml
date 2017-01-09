@@ -38,8 +38,11 @@
 
         // LIST
         $(document).ready(function () {
+            $('#message').html('LOADING...');
+
             $.getJSON(CONFIG.apiPath + '/classes')
             .done(function (r) {
+                $('#message').remove();
                 if (!r.isOK) {
                     alert("Error");
                     return;
@@ -74,3 +77,4 @@
     </tr>
 
 </table>
+<p id="message"></p>

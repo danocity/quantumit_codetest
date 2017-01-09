@@ -48,8 +48,11 @@
 
         // LIST
         $(document).ready(function () {
+            $('#message').html('LOADING...');
+
             $.getJSON(CONFIG.apiPath + '/students')
             .done(function (r) {
+                $('#message').remove();
                 if (!r.isOK) {
                     alert("Error");
                     return;
@@ -89,3 +92,4 @@
         <th></th>
     </tr>
 </table>
+<p id="message"></p>
