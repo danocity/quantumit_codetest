@@ -4,6 +4,8 @@ This is a C# exercise for Quantum IT.
 
 See the "Design Document.docx" for list of tools you need to be able to compile and run it.
 
+NOTE: For simplicity, i am using a SQL Server LocalDB files for this exercise. You can convert it to a full SQL Server database using the Code-First migration scripts i included in the project.
+
 Configuration Notes:
 
 1) Copy the database files from \CodeTest\App_Data folder to an external folder of your choice.
