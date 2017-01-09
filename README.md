@@ -15,7 +15,7 @@ Configuration Notes:
 Example:
 C:\junk\db\aspnet-WebApplication1-20170107103542.mdf
 
-2) Under the CodeTest project, edit the file: \Views\Shared\_Layout.cshtml and change the location of the REST API path where it is running:
+2) Under the CodeTest project, edit the file: \Views\Shared\\_Layout.cshtml and change the location of the REST API path where it is running:
 
 Example:
 var CONFIG =
